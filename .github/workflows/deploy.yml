@@ -27,6 +27,6 @@ jobs:
           user: ${{ secrets.SERVER_USERNAME }}
           host: ${{ secrets.SERVER_HOST }}
           localpath: dist
-          remotepath: /usr/share/nginx/blog
+          remotepath: /${{ secrets.SERVER_USERNAME }}/blog-frontend
           deploy_key: ${{ secrets.SSH_PRIVATE_KEY }}
           excludes: ""
