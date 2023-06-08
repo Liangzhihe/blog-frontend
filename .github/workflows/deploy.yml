@@ -1,0 +1,32 @@
+name: Deploy Post Frontend to Ubuntu Server
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-20.04 # Ubuntu Server 20.04 LTS (Focal Fossa)
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build
+        run: npm run build
+
+      - name: Deploy to server
+        uses: contention/rsync-deployments@v2.0.0
+        with:
+          flags: -avz --delete
+          user: ${{ secrets.SERVER_USERNAME }}
+          host: ${{ secrets.SERVER_HOST }}
+          localpath: dist
+          remotepath: /usr/share/nginx/blog
+          deploy_key: ${{ secrets.SSH_PRIVATE_KEY }}
+          excludes: ""
