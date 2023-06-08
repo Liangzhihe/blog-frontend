@@ -25,16 +25,25 @@ const Home = () => {
   return (
     <div className="home">
       {/* list for post */}
-      <div>Home</div>
+      {/* <div>Header</div> */}
       <div className='list'>
       {
         posts.length > 0 ? posts.map((post) => {
           return (
             <div className='list-item' key={post.id}>
               <div className='title'>{post.title}</div>
-              <div className='sub-title'>
-                {new Date(post.updatedAt).toLocaleString()}
-              </div>
+              {/* 当创建时间和更新时间相等时，视为未更新过 */}
+              { post.createdAt === post.updatedAt ?
+                (
+                  <div className='sub-title'>
+                    发布于：{new Date(post.createdAt).toLocaleString()}
+                  </div>
+                ) : (
+                  <div className='sub-title'>
+                    编辑于：{new Date(post.updatedAt).toLocaleString()}
+                  </div>
+                )
+              }
             </div>
           )
         }): (
