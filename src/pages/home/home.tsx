@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { getAllPosts } from '../../api/modules/post'
 import { PostItem } from '../../api/interface/post'
 import './home.css'
@@ -6,6 +7,7 @@ import './home.css'
 const Home = () => {
 
   const [posts, setPosts] = useState<PostItem[]>([])
+  const navigate = useNavigate()
 
   useEffect(() => {
     fetchData()
@@ -22,6 +24,10 @@ const Home = () => {
     }
   }
 
+  const runterToContent = (id: string) => {
+    navigate(`/content/${id}`)
+  }
+
   return (
     <div className="home">
       {/* list for post */}
@@ -30,7 +36,7 @@ const Home = () => {
       {
         posts.length > 0 ? posts.map((post) => {
           return (
-            <div className='list-item' key={post.id}>
+            <div className='list-item' key={post.id} onClick={() => runterToContent(post.id)}>
               <div className='title'>{post.title}</div>
               {/* 当创建时间和更新时间相等时，视为未更新过 */}
               { post.createdAt === post.updatedAt ?
@@ -47,7 +53,7 @@ const Home = () => {
             </div>
           )
         }): (
-          <div>No posts found.</div>
+          <div></div>
         )
       }
       </div>

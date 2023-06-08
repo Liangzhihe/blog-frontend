@@ -9,7 +9,7 @@ const rootRouter:RouteObject[] = [
     element: <Home/>,
   },
   {
-    path: '/content',
+    path: '/content/:id',
     element: <Content/>,
   }
 ]
