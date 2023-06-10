@@ -25,16 +25,16 @@ const Content = () => {
     <div className={content.content}>
       {/* content for post */}
       <div className={content.header}>{post?.title}</div>
-      <div>{post?.content}</div>
       {post && (
         <div>
           {post.createdAt === post.updatedAt ? (
-            <span>发布于：{new Date(post.createdAt).toLocaleString()}</span>
+            <div className={content.sup}>发布于：{new Date(post.createdAt).toLocaleString()}</div>
           ) : (
-            <span>编辑于：{new Date(post.updatedAt).toLocaleString()}</span>
+            <div className={content.sup}>编辑于：{new Date(post.updatedAt).toLocaleString()}</div>
           )}
         </div>
       )}
+      <div>{post?.content}</div>
     </div>
   )
 }
