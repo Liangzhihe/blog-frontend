@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from 'react'
 import { useParams } from 'react-router-dom'
+import ReactMarkdown from 'react-markdown'
 import { PostItem } from '../../api/interface/post'
 import { getPostById } from '../../api/modules/post'
 import content from './content.module.css'
@@ -19,8 +20,6 @@ const Content = () => {
     fetchPost()
   }, [fetchPost, id])
 
-
-
   return (
     <div className={content.content}>
       {/* content for post */}
@@ -34,7 +33,10 @@ const Content = () => {
           )}
         </div>
       )}
-      <div>{post?.content}</div>
+      {post &&
+        <ReactMarkdown
+          components={{ img(props) { return <img {...props} style={{ maxWidth: '100%' }}></img> } }}
+        >{post.content}</ReactMarkdown>}
     </div>
   )
 }
