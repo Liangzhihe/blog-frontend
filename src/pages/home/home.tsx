@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import formatDate from '../../utils/formatDate'
-import { getAllPosts } from '../../api/modules/post'
-import { PostItem } from '../../api/interface/post'
+import formatDate from '@/utils/formatDate'
+import { getAllPosts } from '@/api/modules/post'
+import { PostItem } from '@/api/interface/post'
 import homeStyle from './home.module.css'
 
 const Home = () => {

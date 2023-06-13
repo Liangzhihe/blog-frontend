@@ -1,9 +1,9 @@
 import { useState, useEffect, useCallback } from 'react'
 import { useParams } from 'react-router-dom'
 import ReactMarkdown from 'react-markdown'
-import formatDate from '../../utils/formatDate'
-import { PostItem } from '../../api/interface/post'
-import { getPostById } from '../../api/modules/post'
+import formatDate from '@/utils/formatDate'
+import { PostItem } from '@/api/interface/post'
+import { getPostById } from '@/api/modules/post'
 import content from './content.module.css'
 
 const Content = () => {
