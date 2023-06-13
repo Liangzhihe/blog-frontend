@@ -6,6 +6,11 @@ import dotenv from 'dotenv'
 export default defineConfig(() => {
   dotenv.config()
   return {
+    resolve: {
+      alias: {
+        '@': '/src',
+      }
+    },
     plugins: [react()],
   }
 })
