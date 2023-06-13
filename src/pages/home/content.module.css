@@ -9,8 +9,10 @@
   font-weight: bold;
 }
 
-.sup {
+.date {
   margin: 10px 0;
   font-size: 14px;
   color: #666;
+  font-weight: bold;
+  font-family: "Courier New", Courier, monospace;
 }
