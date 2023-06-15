@@ -11,6 +11,9 @@ const Content = () => {
 
   const [post, setPost] = useState<PostItem>()
 
+  // loading status
+  // const [loading, setLoading] = useState(false)
+
   const fetchPost = useCallback(async () => {
     if (!id) return
     const res = await getPostById(id)
@@ -35,12 +38,12 @@ const Content = () => {
               <div>编辑于：{formatDate(new Date(post.updatedAt))}</div>
             </div>
           )}
+
+          <ReactMarkdown
+            components={{ img(props) { return <img {...props} style={{ maxWidth: '100%' }}></img> } }}
+          >{post.content}</ReactMarkdown>
         </div>
       )}
-      {post &&
-        <ReactMarkdown
-          components={{ img(props) { return <img {...props} style={{ maxWidth: '100%' }}></img> } }}
-        >{post.content}</ReactMarkdown>}
     </div>
   )
 }
