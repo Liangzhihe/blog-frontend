@@ -2,6 +2,7 @@ import { useRoutes } from 'react-router-dom'
 import { RouteObject } from 'react-router'
 import Home from '@/pages/home/home'
 import Content from '@/pages/home/content'
+import About from '@/pages/about/about'
 
 const rootRouter:RouteObject[] = [
   {
@@ -11,6 +12,10 @@ const rootRouter:RouteObject[] = [
   {
     path: '/content/:id',
     element: <Content/>,
+  },
+  {
+    path: '/about',
+    element: <About/>,
   }
 ]
 
