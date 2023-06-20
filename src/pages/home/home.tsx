@@ -36,7 +36,6 @@ const Home = () => {
   return (
     <div className={homeStyle.home}>
       {/* list for post */}
-      {/* <div>Header</div> */}
       <div className={homeStyle.list}>
       {
         posts.length > 0 ? posts.map((post) => {
