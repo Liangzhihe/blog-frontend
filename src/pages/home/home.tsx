@@ -52,6 +52,9 @@ const Home = () => {
         )
       }
       </div>
+      <div className={homeStyle.record}>
+        <a href="https://beian.miit.gov.cn">粤ICP备2023069628号</a>
+      </div>
     </div>
   )
 }

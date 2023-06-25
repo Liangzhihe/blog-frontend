@@ -29,3 +29,10 @@
   font-weight: bold;
   font-family: "Courier New", Courier, monospace;
 }
+
+.record {
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  font-size: 18px;
+}
