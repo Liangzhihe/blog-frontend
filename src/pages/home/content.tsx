@@ -15,7 +15,11 @@ const Content = () => {
   // const [loading, setLoading] = useState(false)
 
   const fetchPost = useCallback(async () => {
-    if (!id) return
+    if (!id) {
+      // show error message in the page
+      console.log('id is null')
+      return
+    }
     const res = await getPostById(id)
     setPost(res.data)
   }, [id])
